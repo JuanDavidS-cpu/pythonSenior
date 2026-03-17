@@ -144,7 +144,7 @@ def RegistrarEstudiante():
         nota3 = float(input(f"ingrese la tercer nota de {nombreEstudiante}:"+"\n"))
 
 
-    
+    #aqui añado a cada variable, una posicion en el diccionario
     estudiante["nombre"] = nombreEstudiante
     estudiante["edad"] = edad
     estudiante["nota1"] = nota1
@@ -153,13 +153,14 @@ def RegistrarEstudiante():
 
     #el diccionario, lo ingreso a la lista, para que halla una lista de estudiantes
     Estudiantes.append(estudiante)
-
+    #retorno estudiante creado
     return estudiante
 
 
 def calcularPromedio (estudiante):
     
     Promedio = (estudiante["nota1"] + estudiante["nota2"] + estudiante["nota3"]) / 3
+    #añado la variable promedio con una direccion al diccionario
     estudiante["promedio"] = Promedio
     return Promedio
 
@@ -170,7 +171,7 @@ def estadoEstudiante(estudiante):
         estado = "En recuperacion"
     else:
         estado = "Aprobado"
-
+    #añado la variable estado con una posicion al diccionario
     estudiante["estado"] = estado
 
     return estado
@@ -200,6 +201,7 @@ while opcion != 3 :
         print(f"el estado academico de {estudiante["nombre"]} : {estado}")
             
     elif opcion == 2:
+        #para cada diccionario "estudiante", en la lista de "Estudiantes"
         for estudiante in Estudiantes:
             print(f"""nombre: {estudiante["nombre"]}, 
 edad: {estudiante["edad"]}, 
@@ -213,11 +215,13 @@ estado : {estudiante["estado"]}
     elif opcion == 3:
         contador = 0
         sumaPromedios = 0
+
+        #para cada diccionario "estudiante", en la lista de "Estudiantes"
         for estudiante in Estudiantes:
             #un contador para cada estudiante recorrido en Estudiantes
             contador += 1
             sumaPromedios += estudiante['promedio']
-            #y cada promedio se asigna a sumapromedio
+            #y cada promedio se asigna y suma al anterior a sumapromedio
         promedioTotal = sumaPromedios/contador
         #aqui es el total de la sumapromedio / contador(numero de estudiantes)
         print("!! GRACIAS POR USAR EL SOFTWARE¡¡\n")
