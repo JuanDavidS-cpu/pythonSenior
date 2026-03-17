@@ -123,6 +123,8 @@ def RegistrarEstudiante():
     edad = int(input(f"\n"+f"ingrese la edad de {nombreEstudiante}: "))
     while edad <= 0:
         print("ingrese un rango de edad mayor a cero") 
+        #se pide una nueva entrada para que no genere bucle infinito
+        #si no se pide nueva entrada, edad queda en el ultimo valor y nunca cambia
         edad = int(input(f"ingrese la edad de {nombreEstudiante}: "))
 
     nota1 = float(input(f"ingrese la primer nota de {nombreEstudiante}: "))
